@@ -2,6 +2,10 @@ application:
   name: qovery-test
   project: testing-qovery
   publicly_accessible: true
+databases:
+- type: mongodb
+  version: 4.2
+  name: my-mongodb
 routers:
 - name: main
   routes:
