@@ -1,11 +1,14 @@
-FROM node:13-alpine
+FROM python:3.7
 
-RUN mkdir -p /usr/src/app
+COPY . /app
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY . .
+RUN apt-get update \
+    && apt-get install -y wget
 
-EXPOSE 3000
+RUN pip install -r requirements.txt
 
-CMD node app.js
+EXPOSE 5000
+
+CMD flask run
